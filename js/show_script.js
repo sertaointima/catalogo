@@ -1,3 +1,4 @@
+var titulo_produto;
 var firebaseConfig = {
     apiKey: "AIzaSyBctfYkfgMlwBL4JYcHPKk3Es9Bbo8etsA",
     authDomain: "catalogosertaointima.firebaseapp.com",
@@ -15,7 +16,7 @@ var produtos = firebase.database().ref('produtos');
 document.getElementById('whats').addEventListener("click", whats_redirect);
 
 function whats_redirect(){
-    window.location.href="https://bit.ly/3fZFWL8";
+    window.location.href="https://api.whatsapp.com/send?phone=5589994707167&text=Ol%C3%A1%2C%20gostei%20do%20"+titulo_produto+"%2C%20tem%20dispon%C3%ADvel%3F%20";
 }
 var query = location.search.slice(1);
 var partes = query.split('&');
@@ -26,6 +27,7 @@ partes.forEach(function (parte) {
         var object = snap2.val();
         document.getElementById('img').setAttribute('src','assets/img/produtos/ok ('+object.id_foto+').jpg');
         document.getElementById('title').innerText = object.titulo;
+        titulo_produto= object.titulo;
         document.getElementById('desc').innerText = object.descricao;
         document.getElementById('valor_c').innerText ="R$"+object.valor_cartao;
         document.getElementById('valor_v').innerText = "R$"+object.valor_vista;

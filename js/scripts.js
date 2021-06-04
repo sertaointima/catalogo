@@ -1,3 +1,4 @@
+var destques_cont=0;
 var firebaseConfig = {
     apiKey: "AIzaSyBctfYkfgMlwBL4JYcHPKk3Es9Bbo8etsA",
     authDomain: "catalogosertaointima.firebaseapp.com",
@@ -17,13 +18,49 @@ var firebaseConfig = {
   var key = snap.key;
   var value = snap.val();
   if(value.status=="1"){
-    produtos.child(key).once('value', snap2 => { 
+    if(value.destaque=="1"){
+      var contente_head = document.getElementById('head-carousel');
+      var content_carousel = document.getElementById('content_carousel');
+      var li = document.createElement("LI");
+      li.setAttribute('data-target','#carouselExampleIndicators');
+      li.setAttribute('data-slide-to',''+destques_cont+'');
+      var div1 = document.createElement("DIV");
+      if(destques_cont==0){
+        div1.setAttribute('class','carousel-item active');
+        li.setAttribute('class','active');
+      }else{
+        div1.setAttribute('class','carousel-item');
+      }
+      contente_head.appendChild(li);
+      var link = document.createElement("A");
+      link.setAttribute('href','show.html?id='+key);
+      var div2 = document.createElement("DIV");
+      div2.setAttribute('class','carousel-titulo');
+      var h1 = document.createElement("H1");
+      h1.setAttribute('style', 'font-size:3rem;');
+      h1.innerText=value.titulo;
+      var h4 = document.createElement("H4");
+      h4.innerText=value.descricao_curta;
+      var img = document.createElement("IMG");
+      img.setAttribute('class','d-block w-100');
+      img.setAttribute('src','assets/img/destaques/ok ('+value.id_foto_dest+').jpg');
+      div1.appendChild(link);
+      link.appendChild(div2);
+      div2.appendChild(h1);
+      div2.appendChild(h4);
+      link.appendChild(img);
+      content_carousel.appendChild(div1);
+      destques_cont++;
+    }else{
+      produtos.child(key).once('value', snap2 => { 
         var object = snap2.val();
         var content_div = document.getElementById("content_produts");    
         var div1 = document.createElement("DIV");    
-        div1.setAttribute('class','col mb-5');
+        div1.setAttribute('class','col');
+        div1.setAttribute('style','margin-bottom:20px;padding:6px;');
         var div2 = document.createElement("DIV");    
         div2.setAttribute('class','card h-100');
+        div2.setAttribute('Style',' background: rgba(6,0,0,0.2);border-radius: 0px;border: none;');
         var img = document.createElement("IMG");
         img.setAttribute('class','card-img-top');
         img.setAttribute('src','assets/img/produtos/ok ('+object.id_foto+').jpg');
@@ -40,6 +77,7 @@ var firebaseConfig = {
         div6.setAttribute('class','text-center');
         var link = document.createElement("A"); 
         link.setAttribute('class','btn btn-outline-dark mt-auto');
+        link.setAttribute('style','width: 80%;background: #810012;color: white;border: none;border-radius: 4px;');
         link.setAttribute('href','show.html?id='+key);
         link.innerText="Saiba mais"
         var desc = document.createElement("P");
@@ -55,7 +93,8 @@ var firebaseConfig = {
         div6.appendChild(link);
     
         content_div.appendChild(div1);
-    });
+      });
+    }
   }
  
 });
