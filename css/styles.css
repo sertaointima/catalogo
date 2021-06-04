@@ -10839,3 +10839,18 @@ textarea.form-control-lg {
   height: 62px;
   width: 100%;
 }
+
+.buttox{
+  width: 60%;
+  height: 60px;
+  margin-left: 20%;
+  background: #810012;
+  color: white;
+  border: none;
+}
+
+.buttox:hover{
+  background: #c95666!important;
+  color: white;
+  border: none;
+}
