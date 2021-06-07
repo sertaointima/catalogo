@@ -51,6 +51,50 @@ var firebaseConfig = {
       link.appendChild(img);
       content_carousel.appendChild(div1);
       destques_cont++;
+
+      produtos.child(key).once('value', snap2 => { 
+        var object = snap2.val();
+        var content_div = document.getElementById("content_produts");    
+        var div1 = document.createElement("DIV");    
+        div1.setAttribute('class','col');
+        div1.setAttribute('style','margin-bottom:20px;padding:6px;');
+        var div2 = document.createElement("DIV");    
+        div2.setAttribute('class','card h-100');
+        div2.setAttribute('Style',' background: rgba(6,0,0,0.2);border-radius: 0px;border: none;');
+        var img = document.createElement("IMG");
+        img.setAttribute('class','card-img-top');
+        img.setAttribute('src','assets/img/produtos/ok ('+object.id_foto+').jpg');
+        var div3 = document.createElement("DIV"); 
+        div3.setAttribute('class','card-body p-4');
+        var div4 = document.createElement("DIV"); 
+        div4.setAttribute('class','text-center');
+        var h5 = document.createElement("H5"); 
+        h5.setAttribute('class','fw-bolder');
+        h5.innerText=object.titulo;
+        var div5 = document.createElement("DIV"); 
+        div5.setAttribute('class','card-footer p-4 pt-0 border-top-0 bg-transparent');
+        var div6 = document.createElement("DIV"); 
+        div6.setAttribute('class','text-center');
+        var link = document.createElement("A"); 
+        link.setAttribute('class','btn btn-outline-dark mt-auto');
+        link.setAttribute('style','width: 80%;background: #810012;color: white;border: none;border-radius: 4px;');
+        link.setAttribute('href','show.html?id='+key);
+        link.innerText="Saiba mais"
+        var desc = document.createElement("P");
+        desc.innerText= object.descricao_curta;
+        div1.appendChild(div2);
+        div2.appendChild(img);
+        div2.appendChild(div3);
+        div3.appendChild(div4);
+        div4.appendChild(h5);
+        div4.appendChild(desc);
+        div2.appendChild(div5);
+        div5.appendChild(div6);
+        div6.appendChild(link);
+    
+        content_div.appendChild(div1);
+      });
+
     }else{
       produtos.child(key).once('value', snap2 => { 
         var object = snap2.val();

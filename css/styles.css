@@ -10856,3 +10856,21 @@ textarea.form-control-lg {
 .carousel-titulo{
   position: absolute;width: 80%;margin-left: 10%;text-align: right;margin-top: 30px;color: white;
 }
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgb(221, 203, 203);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(107, 37, 37);
+}
