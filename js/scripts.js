@@ -42,8 +42,9 @@ var firebaseConfig = {
       var h4 = document.createElement("H4");
       h4.innerText=value.descricao_curta;
       var img = document.createElement("IMG");
-      img.setAttribute('class','d-block w-100');
-      img.setAttribute('src','assets/img/destaques/ok ('+value.id_foto_dest+').jpg');
+      img.setAttribute('class','d-block');
+      img.setAttribute('src','assets/img/destaques/ok (111).jpg');
+      //img.setAttribute('src','assets/img/destaques/ok ('+value.id_foto_dest+').jpg');
       div1.appendChild(link);
       link.appendChild(div2);
       div2.appendChild(h1);
