@@ -43,7 +43,7 @@ partes.forEach(function (parte) {
         document.getElementById('img').setAttribute('src','assets/img/produtos/ok ('+object.id_foto+').jpg');
         document.getElementById('title').innerText = object.titulo;
         titulo_produto= object.titulo;
-        document.getElementById('desc').innerText = object.descricao;
+        document.getElementById('desc').innerHTML = object.descricao;
         document.getElementById('valor_c').innerText ="Ou em até 3x no cartão de crédito";;
         document.getElementById('valor_v').innerText = "R$"+object.valor_promo;
         document.getElementById('valor_real').innerText = "R$"+object.valor_real;
