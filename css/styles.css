@@ -508,10 +508,13 @@ progress {
   font-size: calc(1.425rem + 2.1vw);
   font-weight: 300;
   line-height: 1.2;
+  color: dimgray;
 }
 @media (min-width: 1200px) {
   .display-5 {
-    font-size: 3rem;
+    font-size: 2.7rem;
+    font-weight: 400;
+    color: dimgray;
   }
 }
 
@@ -4289,7 +4292,7 @@ textarea.form-control-lg {
 
 .card-body {
   flex: 1 1 auto;
-  padding: 1rem 1rem;
+  padding: 1rem 0.5rem;
 }
 
 .card-title {
@@ -10840,12 +10843,12 @@ textarea.form-control-lg {
 }
 
 .buttox{
-  width: 60%;
+  width: 100%;
   height: 60px;
-  margin-left: 20%;
   background: #810012;
   color: white;
   border: none;
+  margin-top: -1rem;
 }
 
 .buttox:hover{
@@ -10873,4 +10876,49 @@ textarea.form-control-lg {
 
 *::-webkit-scrollbar-thumb {
   background-color: rgb(107, 37, 37);
+}
+
+.a-price-symbol {
+  top: -.5em;
+  font-size: 14px;
+  position: relative;
+}
+.a-price {
+  text-decoration: none;
+  position: relative;
+  line-height: normal;
+}
+.a-price-whole{
+  font-size: 25px;
+  font-weight: 500;
+  color: darkred;
+}
+.a-price .a-price-fraction, .a-price .a-price-symbol, .a-pricey .a-price-fraction, .a-price[data-a-size$=l] .a-price-symbol {
+  position: relative;
+}
+
+.valor_real{
+  margin-top: -10px;
+  font-size: 0.95rem;
+  line-height: 1.375;
+  color: rgb(87, 87, 87);
+  text-decoration: line-through;
+  margin-bottom: 7px;
+}
+.show_parcelas{
+  border: 1px solid rosybrown;
+  height: 125px;
+}
+.button_show_parcelas{
+  background: none;
+  border: none;
+  color: darkred;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.text_desc{
+  width: 100%;
+  font-size: 20px;
+  font-weight: 400;
 }
